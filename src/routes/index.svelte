@@ -1,4 +1,5 @@
 <script context="module" lang="ts">
+	import type { Client } from '@prisma/client'
 	import type { Load } from '@sveltejs/kit'
 
 	export const load: Load = async ({ fetch }) => {
@@ -12,7 +13,7 @@
 </script>
 
 <script lang="ts">
-	export let clients: any[]
+	export let clients: Client[]
 </script>
 
 <div class="p-6 max-w-4xl mx-auto">
@@ -21,7 +22,7 @@
 	<code class="bg-neutral-100 p-2 rounded-sm block mt-4"> /api/clients </code>
 	<ul class="p-2 list-disc list-inside">
 		{#each clients as client}
-			<li>{client}</li>
+			<li>{client.name}</li>
 		{/each}
 	</ul>
 </div>
